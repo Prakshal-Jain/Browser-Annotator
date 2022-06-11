@@ -72,7 +72,7 @@ function activateCanvas() {
     var context = document.getElementById('canvas').getContext("2d");
     var canvas = document.getElementById('canvas');
     context = canvas.getContext("2d");
-    context.strokeStyle = "#ff0000";
+    context.strokeStyle = '#000';
     context.lineJoin = "round";
     context.lineWidth = 5;
 
@@ -256,6 +256,13 @@ if (window.location.hash === "#annotation") {
         <button class="clear">clear</button>
         <button class="save">save</button>
     `
+
+    document.querySelectorAll('.clr').forEach(element => {
+        element.addEventListener('click', (event) => {
+            var context = document.getElementById('canvas').getContext("2d");
+            context.strokeStyle = event.target.dataset.clr;
+        })
+    })
 
     activateCanvas()
 }
